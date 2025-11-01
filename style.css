@@ -1,4 +1,9 @@
 /* Modo oscuro elegante */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* evita que los títulos se tapen con la barra */
+}
+
 body {
   background-color: #0d1117;
   color: #e6edf3;
@@ -8,12 +13,45 @@ body {
   line-height: 1.6;
 }
 
+/* Barra de navegación */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #e6edf3;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #58a6ff;
+}
+
 /* Encabezado */
 header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 20px 40px; /* más espacio */
   background: linear-gradient(90deg, #111827, #1f2937);
   border-bottom: 1px solid #30363d;
+  margin-top: 70px; /* espacio debajo de la barra fija */
 }
 
 header h1 {
@@ -25,26 +63,21 @@ header p {
   color: #9ca3af;
 }
 
-/* Secciones */
+/* Contenido principal */
 main {
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
+  padding-top: 40px;
 }
 
+/* Secciones */
 .seccion {
   background-color: #161b22;
   border: 1px solid #30363d;
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.seccion:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(88,166,255,0.3);
 }
 
 h2 {
@@ -53,7 +86,13 @@ h2 {
   padding-bottom: 8px;
 }
 
-/* Lista de proyectos */
+.seccion:hover {
+  background-color: #1c2331; /* tono más claro que #161b22 */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform: translateY(-2px); /* leve levantamiento visual */
+}
+
+/* Listas */
 ul {
   list-style: none;
   padding: 0;
@@ -78,7 +117,32 @@ li {
   background-color: #58a6ff;
 }
 
-/* Pie de página */
+/* Secciones con imágenes */
+.seccion-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* para móviles */
+}
+
+.seccion-imagen .texto {
+  flex: 1 1 400px;
+}
+
+.seccion-imagen .imagen {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.seccion-imagen img {
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid #30363d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
@@ -93,4 +157,26 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Estilo personalizado para enlaces */
+a {
+  color: #e6edf3; /* blanco suave */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #58a6ff; /* azul elegante al pasar el mouse */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  header {
+    margin-top: 0;
+  }
 }
